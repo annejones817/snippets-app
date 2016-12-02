@@ -1,8 +1,15 @@
 import logging
+import argparse
 # Set the log output file, and the log level
 # File name is where you want to save the log -- in this case, writes to a file 
 # called snippets.log
 logging.basicConfig(filename="snippets.log", level=logging.DEBUG)
+
+def main(): 
+    """Main Function"""
+    logging.info("Constructing parser")
+    parser = argparse.ArgumentParser(description="Store and retrieve snippets of text")
+    arguments = parser.parse_args()
 
 def put(name, snippet):
     """
@@ -22,3 +29,6 @@ def get(name):
     """
     logging.error("FIXME: Unimplemented - get({!r})".format(name))
     return ""    
+    
+if __name__ == "__main__":
+    main()
