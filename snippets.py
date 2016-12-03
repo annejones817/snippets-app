@@ -68,7 +68,9 @@ def get(name):
     cursor.execute(command, (name,))
     snippet = cursor.fetchone()
     logging.debug("Snippet retrieved successfully")
-    return snippet    
+    if not snippet: 
+        return "404: Snippet Not Found"
+    return snippet[0]    
     
 if __name__ == "__main__":
     main()
